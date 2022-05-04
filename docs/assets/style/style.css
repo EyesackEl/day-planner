@@ -73,8 +73,7 @@ textarea {
 /* My CSS */
 
 .custom-container {
-  border-left: solid 2px black;
-  border-right: solid 2px black;
+  border: solid 2px black;
 }
 
 .custom-row {
@@ -84,6 +83,8 @@ textarea {
 
 .hour-cell {
   border-right: solid 2px black;
+  text-align: center;
+  font-size: x-large;
 }
 
 .input-cell {
@@ -109,4 +110,18 @@ textarea {
 button i {
   position: relative;
   right: 24px;
+}
+
+/* Prevents css breaking when screen is resized */
+@media screen and (max-width: 991px ) {
+
+  .hour-cell {
+    border-right: none;
+    border-bottom: solid 2px black;
+  }
+
+  .input-cell {
+    border-bottom: solid 2px black;
+    border-right: none;
+  }
 }
