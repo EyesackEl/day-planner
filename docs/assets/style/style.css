@@ -82,29 +82,39 @@ textarea {
 }
 
 .hour-cell {
+  display: flex;
+  justify-content: center;
   border-right: solid 2px black;
-  text-align: center;
   font-size: x-large;
+  text-align: center;
+}
+
+.hour-cell h3 {
+  margin: auto;
 }
 
 .input-cell {
+  display: flex;
+  justify-content: center;
   border-right: solid 2px black;
 }
 
 .input-cell textarea {
   width: 100%;
-  margin: auto;
+  margin: 10px;
   border-left: none;
 }
 
 .save-cell {
-  align-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .save-cell button {
-  width:fit-content;
+  width: fit-content;
   height: fit-content;
   padding: 0px;
+  margin: 7px;
 }
 
 button i {
@@ -121,7 +131,7 @@ button i {
   }
 
   .input-cell {
-    border-bottom: solid 2px black;
     border-right: none;
+    border-bottom: solid 2px black;
   }
 }
