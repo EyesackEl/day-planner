@@ -11,9 +11,14 @@ console.log("Input Boxes: ", inputBoxes)
 console.log("Hour Rows: " , hourRows)
 console.log("Current Hour: " + currentHour);
 
-// Wrapping background color in timer to update css dynamically
-// as hour changes
+
+// Updating highlights every quarter of a second
 timer = setInterval(function() {
+    renderHighlights;
+}, 250)
+
+//  Renders highlights based on time of day
+function renderHighlights() {
     // Reseting classes
     $(hourRows).removeClass(["future", "present", "past"]);
     // Sets background color for past, present, and future timeblocks
@@ -128,9 +133,9 @@ timer = setInterval(function() {
             $(hourRows[i]).addClass("past");
         }
     }
-}, 1)
+}
 
-// Saving the text the user inputs to local storage
+// Saving the text the user inputs to local storage depending on hour row 
 $(saveBtn[0]).click(function() {
     console.log($(inputBoxes[0]).val())
     localStorage.setItem("input0", $(inputBoxes[0]).val());
@@ -161,16 +166,17 @@ $(saveBtn[8]).click(function() {
 })
 
 // Renders users previously entered text from local storage when page loads
-function renderLists() {
-        $(inputBoxes[0]).val(localStorage.getItem("input0"))
-        $(inputBoxes[1]).val(localStorage.getItem("input1"))
-        $(inputBoxes[2]).val(localStorage.getItem("input2"))
-        $(inputBoxes[3]).val(localStorage.getItem("input3"))
-        $(inputBoxes[4]).val(localStorage.getItem("input4"))
-        $(inputBoxes[5]).val(localStorage.getItem("input5"))
-        $(inputBoxes[6]).val(localStorage.getItem("input6"))
-        $(inputBoxes[7]).val(localStorage.getItem("input7"))
-        $(inputBoxes[8]).val(localStorage.getItem("input8"))
+function init() {
+    $(inputBoxes[0]).val(localStorage.getItem("input0"))
+    $(inputBoxes[1]).val(localStorage.getItem("input1"))
+    $(inputBoxes[2]).val(localStorage.getItem("input2"))
+    $(inputBoxes[3]).val(localStorage.getItem("input3"))
+    $(inputBoxes[4]).val(localStorage.getItem("input4"))
+    $(inputBoxes[5]).val(localStorage.getItem("input5"))
+    $(inputBoxes[6]).val(localStorage.getItem("input6"))
+    $(inputBoxes[7]).val(localStorage.getItem("input7"))
+    $(inputBoxes[8]).val(localStorage.getItem("input8"))
 }
 
-renderLists();
+init()
+renderHighlights();
